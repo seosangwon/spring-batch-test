@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 public class BatchService {
 
     private final JobLauncher jobLauncher;
-    private final Job helloJob;
+    private final Job helloJob1;
 
     public void runHelloJob() {
         try {
             JobParameters jobParameters = new JobParametersBuilder()
                     .toJobParameters();
-            jobLauncher.run(helloJob, jobParameters);
+            jobLauncher.run(helloJob1, jobParameters);
         } catch (Exception e) {
             e.printStackTrace();
         }
