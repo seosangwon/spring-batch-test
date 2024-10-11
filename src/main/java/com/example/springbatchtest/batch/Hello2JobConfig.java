@@ -3,6 +3,8 @@ package com.example.springbatchtest.batch;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.JobScope;
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.repository.JobRepository;
@@ -27,6 +29,7 @@ public class Hello2JobConfig {
                 .build();
     }
 
+    @JobScope
     @Bean
     public Step hello2Step1(JobRepository jobRepository, Tasklet hello2StepTasklet1, PlatformTransactionManager platformTransactionManager) {
         return new StepBuilder("hello2Step1Tasklet", jobRepository)
@@ -34,6 +37,7 @@ public class Hello2JobConfig {
                 .build();
     }
 
+    @JobScope
     @Bean
     public Step hello2Step2(JobRepository jobRepository, Tasklet hello2StepTasklet2, PlatformTransactionManager platformTransactionManager) {
         return new StepBuilder("hello2Step2Tasklet", jobRepository)
@@ -42,6 +46,7 @@ public class Hello2JobConfig {
     }
 
 
+    @StepScope
     @Bean
     public Tasklet hello2StepTasklet1() {
         return ((contribution, chunkContext) -> {
@@ -52,6 +57,7 @@ public class Hello2JobConfig {
 
     }
 
+    @StepScope
     @Bean
     public Tasklet hello2StepTasklet2() {
         return ((contribution, chunkContext) -> {
