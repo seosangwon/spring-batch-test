@@ -32,7 +32,7 @@ public class Hello2JobConfig {
     @JobScope
     @Bean
     public Step hello2Step1(JobRepository jobRepository, Tasklet hello2StepTasklet1, PlatformTransactionManager platformTransactionManager) {
-        return new StepBuilder("hello2Step1Tasklet", jobRepository)
+        return new StepBuilder("hello2Step1Tasklet1", jobRepository)
                 .tasklet(hello2StepTasklet1, platformTransactionManager)
                 .build();
     }
@@ -40,7 +40,7 @@ public class Hello2JobConfig {
     @JobScope
     @Bean
     public Step hello2Step2(JobRepository jobRepository, Tasklet hello2StepTasklet2, PlatformTransactionManager platformTransactionManager) {
-        return new StepBuilder("hello2Step2Tasklet", jobRepository)
+        return new StepBuilder("hello2Step2Tasklet2", jobRepository)
                 .tasklet(hello2StepTasklet2, platformTransactionManager)
                 .build();
     }

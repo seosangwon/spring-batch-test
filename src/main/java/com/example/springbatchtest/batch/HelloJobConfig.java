@@ -20,7 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class HelloJobConfig {
     @Bean
-    public Job helloJob1(JobRepository jobRepository, Step helloStep1) {
+    public Job helloJob(JobRepository jobRepository, Step helloStep1) {
         return new JobBuilder("helloJob", jobRepository)
                 .start(helloStep1)
                 .incrementer(new RunIdIncrementer())
