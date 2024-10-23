@@ -14,10 +14,10 @@ spring:
       port: 6379
       password: ON_SECRET
   datasource:
-    url: jdbc:mysql://172.17.0.1:3306/sb_2024_02_20_prod
-    username: root
-    password: ${custom.datasource.password}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:h2:./db_dev;MODE=MYSQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
   jpa:
     hibernate:
       ddl-auto: update
